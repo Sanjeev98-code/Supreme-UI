@@ -1,0 +1,21 @@
+{
+  "name": "whatsapp-report-manager",
+  "version": "1.0.0",
+  "description": "Desktop app for managing WhatsApp report distribution masters",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev"
+  },
+  "dependencies": {
+    "nodemailer": "^8.0.4",
+    "qrcode": "^1.5.4",
+    "whatsapp-web.js": "^1.34.6",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0"
+  },
+  "author": "Supreme UI",
+  "license": "ISC"
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Report Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/styles/main.css" />
+</head>
+<body>
+  <!-- Custom Title Bar -->
+  <div class="titlebar">
+    <div class="titlebar-drag">
+      <div class="titlebar-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.855L.06 23.64a.75.75 0 00.916.917l5.87-1.464A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z" fill="#25D366" opacity="0.2"/>
+        </svg>
+      </div>
+      <span class="titlebar-title">WhatsApp Report Manager</span>
+    </div>
+    <div class="titlebar-controls">
+      <button class="titlebar-btn" id="btn-minimize" title="Minimize">
+        <svg width="12" height="12" viewBox="0 0 12 12"><rect y="5.5" width="12" height="1" fill="currentColor"/></svg>
+      </button>
+      <button class="titlebar-btn" id="btn-maximize" title="Maximize">
+        <svg width="12" height="12" viewBox="0 0 12 12"><rect x="0.5" y="0.5" width="11" height="11" rx="1.5" stroke="currentColor" fill="none"/></svg>
+      </button>
+      <button class="titlebar-btn close" id="btn-close" title="Close">
+        <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- App Layout -->
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a class="nav-item active" data-page="employees" href="#">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </span>
+          <span class="nav-label">Employees</span>
+        </a>
+        <a class="nav-item" data-page="zones" href="#">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 00-16 0c0 3 2.7 7 8 11.7z"/></svg>
+          </span>
+          <span class="nav-label">Zones</span>
+        </a>
+        <a class="nav-item" data-page="branches" href="#">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </span>
+          <span class="nav-label">Branch Masters</span>
+        </a>
+        <a class="nav-item" data-page="brands" href="#">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+          </span>
+          <span class="nav-label">Brand Category</span>
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a class="nav-item" data-page="reports" href="#">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </span>
+          <span class="nav-label">Report List</span>
+        </a>
+        <a class="nav-item" data-page="distribution" href="#">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
+          </span>
+          <span class="nav-label">Distribution List</span>
+        </a>
+        <a class="nav-item" data-page="logs" href="#">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </span>
+          <span class="nav-label">Logs</span>
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a class="nav-item" data-page="whatsapp" href="#">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          </span>
+          <span class="nav-label">Communication Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="settings-btn" id="btn-settings">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M12 2v2M12 20v2M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M2 12h2M20 12h2"/></svg>
+          <span>Settings</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div id="page-container"></div>
+    </main>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- Modal Overlay -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div id="modal-box" class="modal-box"></div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settings-overlay" class="modal-overlay hidden">
+    <div class="modal-box" style="max-width:500px">
+      <div class="modal-header">
+        <h3>Settings</h3>
+        <button class="modal-close" id="btn-settings-close">&times;</button>
+      </div>
+      <div class="modal-body" style="padding:1.5rem">
+        <label class="form-label">Excel Master File Path</label>
+        <div class="input-group">
+          <input type="text" id="settings-excel-path" class="form-input" placeholder="Select or create your Excel master file..." readonly />
+        </div>
+        <div style="display:flex;gap:0.5rem;margin-top:0.5rem">
+          <button class="btn btn-secondary" id="btn-browse-excel">📂 Browse Existing</button>
+          <button class="btn btn-primary" id="btn-create-excel">✨ Create New File</button>
+        </div>
+        <p class="form-hint" style="margin-top:0.5rem"><strong>Browse Existing</strong> — select an Excel file you already have.<br/><strong>Create New File</strong> — creates a fresh Excel file with all required sheets (Employees, Zones, Branches, Brands, Reports, Distribution, Logs).</p>
+        <div style="margin-top:1.5rem;display:flex;gap:0.75rem;justify-content:flex-end">
+          <button class="btn btn-secondary" id="btn-settings-cancel">Cancel</button>
+          <button class="btn btn-primary" id="btn-settings-save">Save Settings</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="src/renderer.js"></script>
+</body>
+</html>
